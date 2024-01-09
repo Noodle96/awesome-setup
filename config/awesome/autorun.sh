@@ -9,7 +9,7 @@ run() {
 
 run "picom"
 run "unclutter"
-run "firefox"
+#run "firefox"
 run "copyq"
 run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 run "nm-applet"

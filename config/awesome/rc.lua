@@ -39,9 +39,7 @@ end)
 beautiful.init("~/.config/awesome/theme-def.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nvim"
-editor_cmd = terminal .. " -e " .. editor
+terminal = "kitty" editor = os.getenv("EDITOR") or "nvim" editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -104,7 +102,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
   -- Each screen has its own tag table.
   local names = { "1", "2", "3", "4", "5" }
   local l = awful.layout.suit
-  local layouts = { l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.floating }
+  --local layouts = { l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.floating }
+  local layouts = { l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle }
   awful.tag(names, s, layouts)
 end)
 -- }}}
@@ -139,6 +138,8 @@ awful.keyboard.append_global_keybindings({
     { description = "quit awesome", group = "awesome" }),
   awful.key({ modkey, }, "Return", function() awful.spawn(terminal) end,
     { description = "open a terminal", group = "launcher" }),
+
+
 
   awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +5%") end),
 
@@ -237,7 +238,7 @@ awful.keyboard.append_global_keybindings({
   end,
     { description = "run nemo", group = "launcher" }),
 
-  awful.key({ modkey }, "`", function()
+  awful.key({ modkey }, "m", function()
     awful.spawn.with_shell("sh ~/.config/rofi/powermenu/type-6/powermenu.sh")
   end,
     { description = "power options", group = "awesome" }),
@@ -321,7 +322,7 @@ client.connect_signal("request::default_keybindings", function()
         c:raise()
       end,
       { description = "toggle fullscreen", group = "client" }),
-    awful.key({ modkey }, "q", function(c) c:kill() end,
+    awful.key({ modkey ,"Shift"}, "c", function(c) c:kill() end,
       { description = "close", group = "client" }),
     awful.key({ modkey }, "space",
       function(c)
@@ -625,14 +626,14 @@ end)
 awful.spawn.with_shell("sh ~/.config/awesome/autorun.sh")
 awful.spawn.with_shell("pkill http-server")
 awful.spawn.with_shell("http-server ~/.config/chevron/dist")
-awful.spawn.with_shell("sleep 20s && conky -c ~/.config/conky/mocha.conf")
+-- awful.spawn.with_shell("sleep 20s && conky -c ~/.config/conky/mocha.conf")
 awful.spawn.with_shell("kdeconnect-indicator")
 awful.spawn.with_shell("feh --no-fehbg --bg-fill ~/Downloads/alena-aenami-stardust-1k.jpg")
 
 -- Garbage collection
 
-collectgarbage("setpause", 110)
-collectgarbage("setstepmul", 1000)
+--collectgarbage("setpause", 110)
+--collectgarbage("setstepmul", 1000)
 gears.timer({
   timeout = 5,
   autostart = true,
