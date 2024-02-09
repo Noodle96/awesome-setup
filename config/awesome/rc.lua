@@ -100,10 +100,10 @@ end)
 -- {{{ Tags
 screen.connect_signal("request::desktop_decoration", function(s)
   -- Each screen has its own tag table.
-  local names = { "1", "2", "3", "4", "5" }
+  local names = { "1", "2", "3", "4", "5"}
   local l = awful.layout.suit
   --local layouts = { l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.floating }
-  local layouts = { l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle }
+  local layouts = { l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle, l.spiral.dwindle}
   awful.tag(names, s, layouts)
 end)
 -- }}}
@@ -248,7 +248,7 @@ awful.keyboard.append_global_keybindings({
   end,
     { description = "calendar popup", group = "launcher" }),
 
-  awful.key({}, "F4", function()
+  awful.key({modkey}, "Print", function()
     awful.spawn.with_shell("flameshot gui")
   end,
     { description = "run flameshot", group = "launcher" }),
@@ -628,7 +628,8 @@ awful.spawn.with_shell("pkill http-server")
 awful.spawn.with_shell("http-server ~/.config/chevron/dist")
 -- awful.spawn.with_shell("sleep 20s && conky -c ~/.config/conky/mocha.conf")
 awful.spawn.with_shell("kdeconnect-indicator")
-awful.spawn.with_shell("feh --no-fehbg --bg-fill ~/Downloads/alena-aenami-stardust-1k.jpg")
+--awful.spawn.with_shell("feh --no-fehbg --bg-fill ~/Downloads/alena-aenami-stardust-1k.jpg")
+awful.spawn.with_shell("feh --no-fehbg --bg-fill ~/Downloads/03.jpg")
 
 -- Garbage collection
 
