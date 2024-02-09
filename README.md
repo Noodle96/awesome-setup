@@ -46,6 +46,8 @@ yay -S --needed awesome-git polybar picom-pijulius-git alacritty betterlockscree
 6. nemo (file manager)
 7. redshift
 
+8. Flameshot
+
 ### Manual Method:
 
 Thanks to [ka1ry](https://github.com/ka1ry) for testing on different hardware!
