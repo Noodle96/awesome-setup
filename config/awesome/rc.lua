@@ -1,8 +1,7 @@
 -- awesome_mode: api-level=4:screen=on
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
-pcall(require, "luarocks.loader")
-
+--pcall(require, "luarocks.loader")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -233,6 +232,12 @@ awful.keyboard.append_global_keybindings({
   --  awful.spawn.with_shell("sh ~/.config/rofi/launchers/type-6/launcher1.sh")
   --end,
   --  { description = "run rofi windows", group = "launcher" }),
+  awful.key({ modkey }, "p", function()
+    --awful.spawn.with_shell("source ~/.zshrc")
+    --awful.spawn.with_shell("sh ~/.config/customRussell/takePhoto/take.sh > /tmp/output.log 2>&1")
+    awful.spawn.with_shell("python3 ~/.config/customRussell/takePhoto/take.py")
+  end,
+    { description = "take photo", group = "launcher" }),
 
   awful.key({ modkey }, "e", function()
     awful.spawn.with_shell("nemo")
@@ -243,11 +248,6 @@ awful.keyboard.append_global_keybindings({
     awful.spawn.with_shell("sh ~/.config/rofi/powermenu/type-5/powermenu.sh")
   end,
     { description = "power options", group = "awesome" }),
-
-  awful.key({ modkey }, "p", function()
-    awful.spawn.with_shell("sh ~/.config/rofi/takePhoto/takephoto.sh")
-  end,
-    { description = "take photo", group = "awesome" }),
 
   awful.key({ modkey }, "c", function()
     cw.toggle()
