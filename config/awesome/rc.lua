@@ -119,8 +119,9 @@ awful.mouse.append_global_mousebindings({
 -- {{{ Calendar widget
 local calendar_widget = require("calendar")
 local cw = calendar_widget({
-  theme = 'catppuccin',
-  placement = 'top center',
+--  theme = 'catppuccin',
+  theme = 'outrun',
+  placement = 'top_center',
   start_sunday = false,
   radius = 8,
 })
@@ -219,19 +220,19 @@ awful.keyboard.append_global_keybindings({
 
   -- Prompt
   awful.key({ modkey }, "a", function()
-    awful.spawn.with_shell("sh ~/.config/rofi/launchers/type-6/launcher.sh")
+    awful.spawn.with_shell("sh ~/.config/rofi/launchers/type-7/launcher.sh")
   end,
     { description = "run rofi apps", group = "launcher" }),
 
-  awful.key({ modkey }, "r", function()
-    awful.spawn.with_shell("sh ~/.config/rofi/launchers/type-6/launcher2.sh")
-  end,
-    { description = "run rofi programs", group = "launcher" }),
+  --awful.key({ modkey }, "r", function()
+  --  awful.spawn.with_shell("sh ~/.config/rofi/launchers/type-6/launcher2.sh")
+  --end,
+  --  { description = "run rofi programs", group = "launcher" }),
 
-  awful.key({ modkey }, "w", function()
-    awful.spawn.with_shell("sh ~/.config/rofi/launchers/type-6/launcher1.sh")
-  end,
-    { description = "run rofi windows", group = "launcher" }),
+  --awful.key({ modkey }, "w", function()
+  --  awful.spawn.with_shell("sh ~/.config/rofi/launchers/type-6/launcher1.sh")
+  --end,
+  --  { description = "run rofi windows", group = "launcher" }),
 
   awful.key({ modkey }, "e", function()
     awful.spawn.with_shell("nemo")
@@ -239,9 +240,14 @@ awful.keyboard.append_global_keybindings({
     { description = "run nemo", group = "launcher" }),
 
   awful.key({ modkey }, "m", function()
-    awful.spawn.with_shell("sh ~/.config/rofi/powermenu/type-6/powermenu.sh")
+    awful.spawn.with_shell("sh ~/.config/rofi/powermenu/type-5/powermenu.sh")
   end,
     { description = "power options", group = "awesome" }),
+
+  awful.key({ modkey }, "p", function()
+    awful.spawn.with_shell("sh ~/.config/rofi/takePhoto/takephoto.sh")
+  end,
+    { description = "take photo", group = "awesome" }),
 
   awful.key({ modkey }, "c", function()
     cw.toggle()
@@ -626,7 +632,7 @@ end)
 awful.spawn.with_shell("sh ~/.config/awesome/autorun.sh")
 awful.spawn.with_shell("pkill http-server")
 awful.spawn.with_shell("http-server ~/.config/chevron/dist")
--- awful.spawn.with_shell("sleep 20s && conky -c ~/.config/conky/mocha.conf")
+--awful.spawn.with_shell("sleep 20s && conky -c ~/.config/conky/mocha.conf")
 awful.spawn.with_shell("kdeconnect-indicator")
 --awful.spawn.with_shell("feh --no-fehbg --bg-fill ~/Downloads/alena-aenami-stardust-1k.jpg")
 awful.spawn.with_shell("feh --no-fehbg --bg-fill ~/Downloads/03.jpg")
