@@ -47,6 +47,7 @@ yay -S --needed awesome-git polybar picom-pijulius-git alacritty betterlockscree
 7. redshift
 
 8. Flameshot
+9. betterlockscreen [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen?tab=readme-ov-file)
 
 ### Manual Method:
 
